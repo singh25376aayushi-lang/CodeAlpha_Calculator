@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuantumCalc Pro | Scientific Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Main Calculator -->
+    <div class="calculator" id="calculator">
+      <div class="calc-topbar">
+        <div class="brand">
+          <span class="dot"></span>
+          <span>QuantumCalc <strong>Pro</strong></span>
+        </div>
+        <div class="top-controls">
+          <button class="pill-btn active" id="sci-toggle" title="Toggle Scientific Keys">ƒ(x) Sci</button>
+          <button class="pill-btn" id="angle-toggle" title="Switch Degrees / Radians">DEG</button>
+          <button class="pill-btn" id="theme-toggle" title="Toggle Theme">☀</button>
+        </div>
+      </div>
+
+      <!-- Display Screen -->
+      <div class="display-panel">
+        <div class="status-row">
+          <span id="memory-indicator" class="mem-badge hidden">M</span>
+          <span id="angle-indicator">DEG</span>
+        </div>
+        <div id="expression-display" class="expression-display"></div>
+        <div id="result-display" class="result-display">0</div>
+      </div>
+
+      <!-- Memory Bar -->
+      <div class="memory-bar">
+        <button class="mem-btn" data-mem="MC">MC</button>
+        <button class="mem-btn" data-mem="MR">MR</button>
+        <button class="mem-btn" data-mem="M+">M+</button>
+        <button class="mem-btn" data-mem="M-">M−</button>
+        <button class="mem-btn" id="copy-btn" title="Copy Result">📋 Copy</button>
+      </div>
+
+      <div class="keypad-wrapper">
+        <!-- Scientific Keypad -->
+        <div class="sci-grid" id="sci-grid">
+          <button class="btn sci" data-sci="sin">sin</button>
+          <button class="btn sci" data-sci="cos">cos</button>
+          <button class="btn sci" data-sci="tan">tan</button>
+          <button class="btn sci" data-sci="log">log</button>
+
+          <button class="btn sci" data-sci="ln">ln</button>
+          <button class="btn sci" data-sci="sqrt">√x</button>
+          <button class="btn sci" data-sci="sq">x²</button>
+          <button class="btn sci" data-insert="^">xʸ</button>
+
+          <button class="btn sci" data-insert="(">(</button>
+          <button class="btn sci" data-insert=")">)</button>
+          <button class="btn sci" data-sci="fact">n!</button>
+          <button class="btn sci" data-sci="inv">1/x</button>
+
+          <button class="btn sci" data-const="PI">π</button>
+          <button class="btn sci" data-const="E">e</button>
+          <button class="btn sci" data-sci="abs">|x|</button>
+          <button class="btn sci" data-sci="exp">exp</button>
+        </div>
+
+        <!-- Standard Keypad -->
+        <div class="std-grid">
+          <button class="btn danger" data-action="clear">AC</button>
+          <button class="btn action" data-action="delete">⌫</button>
+          <button class="btn operator" data-insert="%">%</button>
+          <button class="btn operator" data-insert="/">÷</button>
+
+          <button class="btn num" data-insert="7">7</button>
+          <button class="btn num" data-insert="8">8</button>
+          <button class="btn num" data-insert="9">9</button>
+          <button class="btn operator" data-insert="*">×</button>
+
+          <button class="btn num" data-insert="4">4</button>
+          <button class="btn num" data-insert="5">5</button>
+          <button class="btn num" data-insert="6">6</button>
+          <button class="btn operator" data-insert="-">−</button>
+
+          <button class="btn num" data-insert="1">1</button>
+          <button class="btn num" data-insert="2">2</button>
+          <button class="btn num" data-insert="3">3</button>
+          <button class="btn operator" data-insert="+">+</button>
+
+          <button class="btn num" data-action="sign">±</button>
+          <button class="btn num" data-insert="0">0</button>
+          <button class="btn num" data-insert=".">.</button>
+          <button class="btn equals" data-action="calculate">=</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- History Sidebar -->
+    <aside class="history-panel">
+      <div class="history-header">
+        <h3>History Tape</h3>
+        <button class="clear-hist-btn" id="clear-history">Clear</button>
+      </div>
+      <p class="history-hint">Click any entry to reuse result</p>
+      <div class="history-list" id="history-list"></div>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
